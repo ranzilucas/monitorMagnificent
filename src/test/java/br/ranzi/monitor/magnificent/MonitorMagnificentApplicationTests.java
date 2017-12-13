@@ -1,4 +1,4 @@
-package br.ranzi.monitor.monitorMagnificent;
+package br.ranzi.monitor.magnificent;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

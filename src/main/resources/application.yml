@@ -1,0 +1,30 @@
+spring:
+  datasource: 
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    initialize: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  http:
+    multipart:
+      max-file-size: 2Mb
+      max-request-size: 2Mb
+
+flyway:
+  url: jdbc:h2:mem:db
+  username: sa
+  password: sa
+  enabled: true
+  baseline-on-migrate: true
+
+server:
+  tomcat:
+    max-threads: 4
+
+
+monitor:
+  url: http://localhost:12345
