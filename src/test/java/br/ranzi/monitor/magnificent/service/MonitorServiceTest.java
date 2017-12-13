@@ -2,9 +2,10 @@ package br.ranzi.monitor.magnificent.service;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,28 +19,27 @@ import br.ranzi.monitor.magnificent.provider.MonitorHistoryProvider;
 @RunWith(MockitoJUnitRunner.class)
 public class MonitorServiceTest {
 
-    MonitorHistory monitorHistory;
     @Mock
     private MonitorHistoryRepository repository;
     @InjectMocks
     private MonitorService service;
+    MonitorHistory monitorHistory;
 
     @Before
     public void setup() {
         monitorHistory = MonitorHistoryProvider.create();
     }
 
-    @Ignore
     @Test
     public void requestMonitorReturnSucess() {
 
-        doReturn(monitorHistory).when(service).requestUrl();
         doReturn(monitorHistory).when(repository).save(monitorHistory);
 
         MonitorHistory request = service.request();
-
         assertNotNull(request);
 
+        verify(repository, times(1)).save(monitorHistory);
     }
+
 
 }
