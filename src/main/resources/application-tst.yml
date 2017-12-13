@@ -11,3 +11,6 @@ flyway:
   password: sa
   enabled: true
   baseline-on-migrate: true
+
+monitor:
+    url: http://localhost:12345
